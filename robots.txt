@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://binawor00.github.io/mmain-leyu-com-cn/sitemap.xml
