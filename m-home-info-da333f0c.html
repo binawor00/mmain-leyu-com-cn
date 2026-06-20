@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悟空体育 · 资料索引与知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f9fd;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      color: #1d2b3a;
+      line-height: 1.6;
+      padding: 1.5rem 1.2rem;
+    }
+
+    .wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* header / hero 简洁入口 */
+    .hero-mini {
+      border-bottom: 2px solid #b9dbe9;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .hero-mini h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b3b4b;
+      background: linear-gradient(145deg, #0b3b4b 0%, #1f6f80 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-mini .tagline {
+      font-size: 0.95rem;
+      color: #356f7a;
+      background: #e1f0f5;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .grid-dashboard {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    @media (min-width: 640px) {
+      .grid-dashboard {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .grid-dashboard {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 6px 14px rgba(0, 40, 60, 0.06), 0 2px 4px rgba(0, 30, 50, 0.04);
+      border: 1px solid #daeaf1;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: #7dbecd;
+      box-shadow: 0 10px 22px rgba(23, 100, 120, 0.08);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 550;
+      color: #0e4a5a;
+      border-left: 5px solid #249baa;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card ul,
+    .card p {
+      font-size: 0.96rem;
+      color: #1f3b45;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2b909f;
+      font-weight: 500;
+    }
+
+    .highlight-link {
+      color: #096b7a;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1.5px dotted #249baa;
+      transition: 0.15s;
+    }
+
+    .highlight-link:hover {
+      background: #d9f0f5;
+      border-bottom-style: solid;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    @media (min-width: 600px) {
+      .faq-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .faq-item {
+      background: #f2fafd;
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid #56b4c2;
+    }
+
+    .faq-item strong {
+      display: block;
+      color: #09424f;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      font-size: 0.96rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #204e5a;
+    }
+
+    .info-panel {
+      background: linear-gradient(135deg, #e4f4f9 0%, #d5edf3 100%);
+      border-radius: 28px;
+      padding: 2rem 2rem 1.8rem;
+      margin: 2.4rem 0 2rem;
+      border: 1px solid #b4dae6;
+    }
+
+    .info-panel h3 {
+      font-size: 1.25rem;
+      font-weight: 550;
+      color: #064351;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-panel p {
+      font-size: 0.98rem;
+      color: #133e4a;
+    }
+
+    .info-panel a {
+      color: #0c6f80;
+    }
+
+    .feature-tag {
+      background: #ffffffc0;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0c5c6b;
+      border: 1px solid #9acfdb;
+      margin-right: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-note {
+      border-top: 1px solid #cde1e9;
+      margin-top: 3.2rem;
+      padding-top: 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.88rem;
+      color: #3f6875;
+    }
+
+    .footer-note a {
+      color: #0f6a7b;
+      text-decoration: none;
+      border-bottom: 1px solid #aacfd9;
+    }
+
+    .badge-doc {
+      background: #dff0f5;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      color: #024654;
+    }
+
+    @media (max-width: 480px) {
+      .hero-mini h1 {
+        font-size: 1.7rem;
+      }
+      .card {
+        padding: 1.4rem 1.1rem;
+      }
+      .info-panel {
+        padding: 1.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- hero 区（简洁索引头） -->
+  <div class="hero-mini">
+    <div>
+      <h1>📋 悟空体育 · 知识库</h1>
+      <span class="tagline">资料聚合 · 索引卡片 · 信息节点</span>
+    </div>
+    <div style="margin-top: 0.4rem;">
+      <span class="badge-doc">v2.3 · 信息口径 2025</span>
+    </div>
+  </div>
+
+  <!-- 网格卡片：目录感布局 -->
+  <div class="grid-dashboard">
+
+    <!-- 卡片 1: 平台概览 -->
+    <div class="card">
+      <div class="card-title">📌 平台概览</div>
+      <p><a href="https://m-home-wukong.com" class="highlight-link">悟空体育</a> 是以体育信息整合与运动数据为轴心的服务节点。涵盖赛事资讯、运动科普、社区笔记等模块，面向对体育内容有持续检索需求的用户。</p>
+      <div style="margin-top: 1rem; display: flex; flex-wrap: wrap;">
+        <span class="feature-tag">⚽ 赛事索引</span>
+        <span class="feature-tag">🏀 运动档案</span>
+        <span class="feature-tag">📊 数据笔记</span>
+      </div>
+    </div>
+
+    <!-- 卡片 2: 结构化目录 -->
+    <div class="card">
+      <div class="card-title">📂 内容目录</div>
+      <ul>
+        <li>赛事记录 · 赛季归档与历史节点</li>
+        <li>运动科学 · 训练、营养与恢复资料</li>
+        <li>装备手册 · 器械、场地与护具说明</li>
+        <li>术语表 · 体育项目常见名词释义</li>
+        <li>谈话室 · 社区整理的观点摘要</li>
+      </ul>
+    </div>
+
+    <!-- 卡片 3: 使用说明 / 提示区 -->
+    <div class="card">
+      <div class="card-title">🧭 提示区</div>
+      <p>本知识库旨在提供结构化的体育资料索引。建议使用关键词进行检索；部分条目附带扩展参考标记。信息更新周期以实际内容为准，引用时请核对原文。</p>
+      <p style="margin-top: 1rem; background: #edf7fa; padding: 0.6rem 1rem; border-radius: 30px; font-size: 0.9rem;">
+        ⚡ 目录卡片支持快速定位，部分模块持续补充中。
+      </p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要区 (卡片式) -->
+  <div style="margin: 1.2rem 0 0.6rem;">
+    <h2 style="font-size: 1.3rem; font-weight: 500; color: #094553; border-bottom: 2px solid #b3dde8; padding-bottom: 0.4rem; display: inline-block;">❓ 常见资料检索摘要</h2>
+  </div>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <strong>如何获取最新赛事日程？</strong>
+      <p>通过「赛事记录」目录下的赛季归档页可查阅近期主要联赛与杯赛时间线，部分附有场馆与转播参考。</p>
+    </div>
+    <div class="faq-item">
+      <strong>运动科学资料是否提供训练计划？</strong>
+      <p>知识库内包含基础训练原则与周期化思路概述，具体个体方案建议结合专业教练指导。</p>
+    </div>
+    <div class="faq-item">
+      <strong>术语表覆盖哪些项目？</strong>
+      <p>目前整理超过三十项运动的常用术语，包括足球、篮球、网球、田径、格斗类等，并持续增补。</p>
+    </div>
+    <div class="faq-item">
+      <strong>内容引用规范是什么？</strong>
+      <p>资料整理时尽量标注来源或参考日期，引用时建议标明出处并核对原始页面。信息仅供参考。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 + 相关信息 -->
+  <div class="info-panel">
+    <h3>📎 关于这个资料索引</h3>
+    <p>本页面是对 <a href="https://m-home-wukong.com" class="highlight-link">悟空体育</a> 相关内容所做的整理性入口。信息组织方式以目录卡片和摘要区块为主，不替代官方实时界面。资料主要面向对体育知识有查阅需求的读者，内容力求清晰、克制、有据。</p>
+    <p style="margin-top: 1rem;">相关信息：本索引采用轻量知识库结构，不包含用户个人数据，不收集浏览行为。所有外部链接均指向 <a href="https://m-home-wukong.com" style="color: #0f6a7b;">悟空体育</a> 及可验证的公开内容。</p>
+    <div style="margin-top: 1.2rem; background: #ffffffb0; padding: 0.8rem 1.2rem; border-radius: 60px; display: inline-block; font-size: 0.85rem; border: 1px solid #92cbd9;">⏺️ 资料最后核验：2025-03 · 版本标识 3fa0acc3</div>
+  </div>
+
+  <!-- footer / 辅助链接 -->
+  <div class="footer-note">
+    <span>内容索引 · 持续维护</span>
+    <span>主站：<a href="https://m-home-wukong.com">悟空体育</a></span>
+    <span style="opacity: 0.7;">基于公开资料整理</span>
+  </div>
+
+</div>
+</body>
+</html>
